@@ -1,0 +1,31 @@
+<app-header />
+<app-user-input
+  (calculate)="onCalculateInvestmentResults($event)"
+/>
+<app-eva (close)="onCloseChatBot()" [closeButton]="onChatBotClick"></app-eva>
+@if(onClickCalculate){
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Investment Value</th>
+                    <th>Interest (Year)</th>
+                    <th>Total Interest</th>
+                    <th>Invested Capital</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(result of resultsData;track result.year){
+                    <tr>
+                        <td>{{ result.year }}</td>
+                        <td>{{ result.valueEndOfYear }}</td>
+                        <td>{{ result.interest }}</td>
+                        <td>{{ result.totalInterest }}</td>
+                        <td>{{ result.totalAmountInvested }}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>>
+}

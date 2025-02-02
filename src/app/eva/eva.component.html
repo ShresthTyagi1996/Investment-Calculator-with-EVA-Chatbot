@@ -1,0 +1,29 @@
+
+    <button class="eva-button" (click)="onClick()">
+        <img src="EVA.jpg" alt="chatbot image">
+    </button>
+
+@if(isClicked){
+    <div id="eva-chatbot">
+        <div class="header">
+            <h2>EVA Chatbot</h2>
+            <button class="close-button" (click)="closechat()">Close Chat</button>
+        </div>
+        <div class="chat-content">
+            <!-- Chat messages will go here -->
+             @for(res of responses; track res.id){
+                <p class="chatbot-prompt">{{res.prompt}}</p>
+                <p class="chatbot-response">{{res.response}}</p>
+             }
+        </div>
+        @if(loading){
+            <div class="loader">
+                <span class="spinner"></span>
+            </div>
+        }
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." [(ngModel)]="prompt" name="prompt">
+            <button (click)="fetchChatResponse()">Send</button>
+        </div>
+    </div>
+}

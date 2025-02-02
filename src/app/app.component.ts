@@ -4,13 +4,14 @@ import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import type { InvestmentInput } from './investment-input.model';
 import { EVAComponent } from './eva/eva.component';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent, UserInputComponent, EVAComponent]
+  imports: [HeaderComponent, UserInputComponent, EVAComponent, CurrencyPipe]
 })
 export class AppComponent {
 
